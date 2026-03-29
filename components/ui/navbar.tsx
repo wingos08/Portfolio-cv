@@ -60,7 +60,7 @@ export function Navbar() {
         </ul>
 
         <a
-          href="/CV_Quentin_Maudry.pdf"
+          href="/Portfolio-cv/CV_Quentin_Maudry.pdf"
           download
           className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#c9a84c] text-[#07080f] text-sm font-semibold hover:bg-[#e8c97e] transition-colors duration-200"
         >
@@ -109,7 +109,7 @@ export function Navbar() {
           ))}
         </nav>
         <a
-          href="/CV_Quentin_Maudry.pdf"
+          href="/Portfolio-cv/CV_Quentin_Maudry.pdf"
           download
           className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#c9a84c] text-[#07080f] text-sm font-semibold"
         >
