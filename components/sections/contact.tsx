@@ -45,7 +45,7 @@ export function ContactSection() {
       setErrors(errs)
       return
     }
-    handleFormspree(e)
+    handleFormspree({ name, email, message: msg })
   }
 
   return (
