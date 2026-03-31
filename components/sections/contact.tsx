@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, FormEvent } from "react"
-import { useForm, ValidationError } from "@formspree/react"
+import { useForm } from "@formspree/react"
 import { Reveal } from "@/components/ui/reveal"
 import { SectionHeader } from "@/components/ui/section-header"
 import { GlassCard } from "@/components/ui/glass-card"
@@ -34,7 +34,7 @@ export function ContactSection() {
   const [msg, setMsg] = useState("")
   const [errors, setErrors] = useState<{ name?: string; email?: string; msg?: string }>({})
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const errs: typeof errors = {}
     if (!name.trim()) errs.name = "Veuillez entrer votre nom."
