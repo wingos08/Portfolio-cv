@@ -30,7 +30,7 @@ export function SkillsSection() {
           barsRef.current.forEach((bar, i) => {
             if (bar) {
               const width = languages[i]?.width ?? 0
-              setTimeout(() => { bar.style.width = `${width}%` }, 150)
+              setTimeout(() => { bar.style.width = `${width}%` }, 900)
             }
           })
           obs.unobserve(section)
