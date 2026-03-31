@@ -32,7 +32,7 @@ export default function Page() {
           </span>
           <p className="text-xs text-[#7a90ab]">© 2026 — Tous droits réservés</p>
           <a
-            href="/CV_31.03.2026.pdf"
+            href="/CV_Quentin_Maudry.pdf"
             download
             className="text-xs text-[#c9a84c] opacity-70 hover:opacity-100 transition-opacity"
           >
