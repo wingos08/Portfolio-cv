@@ -20,7 +20,7 @@ export function AboutSection() {
             <div className="relative w-48 md:w-full max-w-[200px]">
               <div className="relative rounded-2xl overflow-hidden border border-[rgba(201,168,76,0.15)]" style={{ height: "267px" }}>
                 <Image
-                  src="/Portfolio-cv/photo.jpg"
+                  src="/photo.jpg"
                   alt="Quentin Maudry"
                   fill
                   className="object-cover"
