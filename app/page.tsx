@@ -33,7 +33,7 @@ export default function Page() {
           <p className="text-xs text-[#7a90ab]">© 2026 — Tous droits réservés</p>
           <a
             href="/CV_Quentin_Maudry.pdf"
-            download
+            target="_blank"
             className="text-xs text-[#c9a84c] opacity-70 hover:opacity-100 transition-opacity"
           >
             Télécharger CV
