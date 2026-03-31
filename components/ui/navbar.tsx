@@ -14,12 +14,28 @@ const links = [
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [active, setActive] = useState("")
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
     window.addEventListener("scroll", onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
+  useEffect(() => {
+    const ids = links.map((l) => l.href.replace("#", ""))
+    const observers = ids.map((id) => {
+      const el = document.getElementById(id)
+      if (!el) return null
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id) },
+        { threshold: 0.3, rootMargin: "0px 0px -50% 0px" }
+      )
+      obs.observe(el)
+      return obs
+    })
+    return () => observers.forEach((obs) => obs?.disconnect())
   }, [])
 
   useEffect(() => {
@@ -50,10 +66,16 @@ export function Navbar() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="relative text-sm text-[#7a90ab] hover:text-[#e8edf3] transition-colors duration-200 group"
+                className={cn(
+                  "relative text-sm transition-colors duration-200 group",
+                  active === l.href.replace("#", "") ? "text-[#c9a84c]" : "text-[#7a90ab] hover:text-[#e8edf3]"
+                )}
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#c9a84c] transition-all duration-300 group-hover:w-full" />
+                <span className={cn(
+                  "absolute -bottom-0.5 left-0 h-px bg-[#c9a84c] transition-all duration-300",
+                  active === l.href.replace("#", "") ? "w-full" : "w-0 group-hover:w-full"
+                )} />
               </a>
             </li>
           ))}

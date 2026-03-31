@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import { Reveal } from "@/components/ui/reveal"
 import { SectionHeader } from "@/components/ui/section-header"
@@ -10,6 +13,8 @@ const infos = [
 ]
 
 export function AboutSection() {
+  const [imgError, setImgError] = useState(false)
+
   return (
     <section id="about" className="relative pt-0 pb-28 px-6" style={{ zIndex: 1 }}>
       <div className="max-w-6xl mx-auto">
@@ -19,13 +24,20 @@ export function AboutSection() {
           <Reveal variant="left">
             <div className="relative w-48 md:w-full max-w-[200px]">
               <div className="relative rounded-2xl overflow-hidden border border-[rgba(201,168,76,0.15)]" style={{ height: "267px" }}>
-                <Image
-                  src="/photo.jpg"
-                  alt="Quentin Maudry"
-                  fill
-                  className="object-cover"
-                  sizes="200px"
-                />
+                {imgError ? (
+                  <div className="w-full h-full flex items-center justify-center bg-[rgba(201,168,76,0.08)] text-[#c9a84c] font-heading text-4xl font-bold">
+                    QM
+                  </div>
+                ) : (
+                  <Image
+                    src="/photo.jpg"
+                    alt="Quentin Maudry"
+                    fill
+                    className="object-cover"
+                    sizes="200px"
+                    onError={() => setImgError(true)}
+                  />
+                )}
               </div>
               {/* Deco frame */}
               <div
